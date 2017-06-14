@@ -1,0 +1,41 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-05-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "newStorageAccountName": {
+      "value": "[concat('ADFS_Lab_WestCentral',)"
+    },
+    "publicIPAddressName": {
+      "value": "ADFS_Lab_DC1"
+    },
+    "publicIPAddressType": {
+      "value": "Static"
+    },
+    "vmName": {
+      "value": "ADFS_Lab_DC1"
+    },
+    "vmSize": {
+      "value": "Standard_DS2_v2"
+    },
+    "adminUserName": {
+      "value": "Dan"
+    },
+    "adminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/f38ef2bb-ede5-46ba-a354-1b2cd38d298d/resourceGroups/ADFS-Test-Installation-Scripts/providers/Microsoft.KeyVault/vaults/ADFS-Keys"
+        },
+        "secretName": "VM-Admin-Pass"
+        },
+    },
+    "virtualNetworkName": {
+          "value": "Network-ADFS-LAB"
+        },
+    "nicName": {
+          "value": "generateName('Microsoft.Storage/storageAccount')adfs-lab-ADFS"
+        },
+    "vmExtensionName": {
+          "value": "malware"
+        }
+      }
+    }
